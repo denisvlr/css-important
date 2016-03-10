@@ -58,7 +58,7 @@ module.exports = function (grunt) {
           r.declarations.forEach(function (d) {
             var selector = d.parent.selectors;
             // This excludes sourcemap entries
-            if (selector.indexOf('filename') === -1 && selector.indexOf('line') === -1) {
+            if (d.parent.type !== 'font-face' && selector.indexOf('filename') === -1 && selector.indexOf('line') === -1) {
               // Don't add important twice
               if (d.value && d.value.indexOf('!important') === -1) {
                 d.value += ' !important';
